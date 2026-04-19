@@ -15,7 +15,7 @@ try
 {
     using var startupConn = dbFactory.CreateConnection();
     await startupConn.OpenAsync();
-    Console.WriteLine("[RevitFlow] MariaDB 연결됨 (디버그/실행 시작 시 확인).");
+    Console.WriteLine("[RevitFlow] MariaDB 연결됨 (디버그/실행 시작 시 확인). Test");
 }
 catch (Exception ex)
 {
