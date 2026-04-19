@@ -2,7 +2,7 @@
 # 빌드 컨텍스트: 이 Dockerfile이 있는 솔루션 루트 (RevitFlow.API.slnx와 동일 폴더)
 # 예: docker build -t revitflow-api .
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
 COPY RevitFlow.API/RevitFlow.API.csproj RevitFlow.API/
@@ -12,7 +12,7 @@ COPY RevitFlow.API/ RevitFlow.API/
 WORKDIR /src/RevitFlow.API
 RUN dotnet publish RevitFlow.API.csproj -c Release -o /app/publish --no-restore
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 
