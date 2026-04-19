@@ -8,8 +8,8 @@ public class DbConnectionFactory
 
     public DbConnectionFactory(IConfiguration config)
     {
-        _connectionString = config.GetConnectionString("MariaDb")
-            ?? throw new InvalidOperationException("MariaDb connection string is missing.");
+        _connectionString = config.GetConnectionString("DefaultConnection")
+            ?? throw new InvalidOperationException("DefaultConnection connection string is missing.");
     }
 
     public MySqlConnection CreateConnection()

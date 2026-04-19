@@ -1,9 +1,15 @@
 using Microsoft.Extensions.DependencyInjection;
 using RevitFlow.API.Data;
+using RevitFlow.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<DbConnectionFactory>();
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<IObjectPointRepository, ObjectPointRepository>();
+builder.Services.AddScoped<IObjectLineRepository, ObjectLineRepository>();
+builder.Services.AddScoped<ILineStyleRepository, LineStyleRepository>();
+builder.Services.AddScoped<IObjectParameterRepository, ObjectParameterRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
